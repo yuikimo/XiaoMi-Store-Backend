@@ -1,7 +1,5 @@
 package com.mall.xiaomi.util;
 
-import org.springframework.stereotype.Component;
-
 import java.security.MessageDigest;
 
 public class MD5Util {

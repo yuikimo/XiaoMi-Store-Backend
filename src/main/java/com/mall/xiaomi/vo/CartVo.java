@@ -2,11 +2,6 @@ package com.mall.xiaomi.vo;
 
 import lombok.Data;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-25 12:37
- * @Description:
- */
 @Data
 public class CartVo {
 

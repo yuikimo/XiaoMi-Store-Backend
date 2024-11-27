@@ -1,15 +1,26 @@
 package com.mall.xiaomi.mapper;
 
 import com.mall.xiaomi.pojo.Product;
-import org.apache.ibatis.annotations.Select;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-public interface ProductMapper extends Mapper<Product> {
+@Mapper
+public interface ProductMapper{
 
-    @Select("select product_id from product")
     List<Integer> selectIds();
 
+    List<Product> selectProductByName(String productName);
 
+    Product selectByPrimaryKey(Integer productId);
+
+    void updateByPrimaryKey(Product product);
+
+    List<Product> selectByExample(Integer categoryId);
+
+    List<Product> selectAll();
+
+    List<Product> select(Product product);
+
+    List<Product> selectByDesc();
 }

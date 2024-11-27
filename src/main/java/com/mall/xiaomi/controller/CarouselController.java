@@ -9,11 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:24
- * @Description:
- */
 @RestController
 public class CarouselController {
 

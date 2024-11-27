@@ -5,11 +5,6 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-28 20:17
- * @Description:
- */
 @Data
 public class SeckillProductVo extends SeckillProduct implements Serializable {
 

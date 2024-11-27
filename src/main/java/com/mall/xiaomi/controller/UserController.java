@@ -15,11 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:27
- * @Description:
- */
 @RestController
 @RequestMapping("/user")
 public class UserController {

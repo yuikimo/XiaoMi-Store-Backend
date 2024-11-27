@@ -1,6 +1,5 @@
 package com.mall.xiaomi.service;
 
-import com.github.pagehelper.PageInfo;
 import com.mall.xiaomi.exception.ExceptionEnum;
 import com.mall.xiaomi.exception.XmException;
 import com.mall.xiaomi.mapper.SeckillProductMapper;
@@ -23,11 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-28 20:01
- * @Description:
- */
 @Service
 public class SeckillProductService {
 
@@ -69,7 +63,7 @@ public class SeckillProductService {
     public void addSeckillProduct(SeckillProduct seckillProduct) {
         // TODO: 仿添加秒杀商品
         Date time = getDate();
-        long startTime = time.getTime()/1000*1000 + 1000 * 60 * 60;
+        long startTime = time.getTime() / 1000 * 1000 + 1000 * 60 * 60;
         long endTime = startTime + 1000 * 60 * 60;
         SeckillTime seckillTime = new SeckillTime();
         seckillTime.setStartTime(startTime);

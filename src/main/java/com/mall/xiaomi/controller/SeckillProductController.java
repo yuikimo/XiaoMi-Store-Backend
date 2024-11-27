@@ -1,7 +1,5 @@
 package com.mall.xiaomi.controller;
 
-import com.github.pagehelper.PageInfo;
-import com.mall.xiaomi.pojo.Product;
 import com.mall.xiaomi.pojo.SeckillProduct;
 import com.mall.xiaomi.pojo.SeckillTime;
 import com.mall.xiaomi.service.SeckillProductService;
@@ -11,15 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-28 19:58
- * @Description:
- */
+import java.util.List;
+
 @RestController
 @RequestMapping("/seckill/product")
 public class SeckillProductController {
@@ -33,6 +25,7 @@ public class SeckillProductController {
 
     /**
      * 根据时间id获取对应时间的秒杀商品列表
+     *
      * @param timeId
      * @return
      */
@@ -45,6 +38,7 @@ public class SeckillProductController {
 
     /**
      * 获取秒杀商品
+     *
      * @param seckillId
      * @return
      */
@@ -57,6 +51,7 @@ public class SeckillProductController {
 
     /**
      * 获取时间段
+     *
      * @return
      */
     @GetMapping("/time")
@@ -68,6 +63,7 @@ public class SeckillProductController {
 
     /**
      * 添加秒杀商品
+     *
      * @param seckillProduct
      * @return
      */
@@ -80,6 +76,7 @@ public class SeckillProductController {
 
     /**
      * 开始秒杀
+     *
      * @param seckillId
      * @return
      */

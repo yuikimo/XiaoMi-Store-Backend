@@ -14,20 +14,15 @@ import com.mall.xiaomi.util.IdWorker;
 import com.mall.xiaomi.vo.CartVo;
 import com.mall.xiaomi.vo.OrderVo;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:21
- * @Description:
- */
 @Service
 public class OrderService {
 
@@ -96,9 +91,11 @@ public class OrderService {
                 throw new XmException(ExceptionEnum.GET_ORDER_NOT_FOUND);
             }
             // 将同一个订单放在一组
-            Map<String, List<OrderVo>> collect = list.stream().collect(Collectors.groupingBy(Order::getOrderId));
-            Collection<List<OrderVo>> values = collect.values();
-            ret.addAll(values);
+            Map<String, List<OrderVo>> collect = list.stream()
+                                                     .filter(item -> item.getOrderId() != null && !item.getOrderId().isEmpty())
+                                                     .collect(Collectors.groupingBy(Order::getOrderId));
+
+            ret.addAll(collect.values());
         } catch (XmException e) {
             e.printStackTrace();
             throw new XmException(ExceptionEnum.GET_ORDER_ERROR);

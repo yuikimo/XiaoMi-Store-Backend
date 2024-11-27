@@ -11,11 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:26
- * @Description:
- */
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -38,7 +33,18 @@ public class ProductController {
         List<Product> list = productService.getHotProduct();
         resultMessage.success("001", list);
         return resultMessage;
+    }
 
+    @GetMapping("/getProductBySearch/{currentPage}/{pageSize}/{productName}")
+    public Map<String, Object> getProductBySearch(@PathVariable String currentPage,
+                                                  @PathVariable String pageSize,
+                                                  @PathVariable String productName) {
+        PageInfo<Product> pageInfo = productService.getProductByName(currentPage, pageSize, productName);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("code", "001");
+        map.put("data", pageInfo.getList());
+        map.put("total", pageInfo.getTotal());
+        return map;
     }
 
     @GetMapping("/{productId}")
@@ -49,7 +55,9 @@ public class ProductController {
     }
 
     @GetMapping("/page/{currentPage}/{pageSize}/{categoryId}")
-    public Map<String, Object> getProductByPage(@PathVariable String currentPage, @PathVariable String pageSize, @PathVariable String categoryId) {
+    public Map<String, Object> getProductByPage(@PathVariable String currentPage,
+                                                @PathVariable String pageSize,
+                                                @PathVariable String categoryId) {
         PageInfo<Product> pageInfo = productService.getProductByPage(currentPage, pageSize, categoryId);
         HashMap<String, Object> map = new HashMap<>();
         map.put("code", "001");

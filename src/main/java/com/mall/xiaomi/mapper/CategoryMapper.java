@@ -1,8 +1,12 @@
 package com.mall.xiaomi.mapper;
 
 import com.mall.xiaomi.pojo.Category;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface CategoryMapper extends Mapper<Category> {
+import java.util.List;
 
+@Mapper
+public interface CategoryMapper {
+
+    List<Category> selectAll();
 }

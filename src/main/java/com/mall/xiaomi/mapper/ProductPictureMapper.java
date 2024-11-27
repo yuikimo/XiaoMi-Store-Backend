@@ -1,8 +1,11 @@
 package com.mall.xiaomi.mapper;
 
 import com.mall.xiaomi.pojo.ProductPicture;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface ProductPictureMapper extends Mapper<ProductPicture> {
+import java.util.List;
 
+@Mapper
+public interface ProductPictureMapper {
+    List<ProductPicture> select(ProductPicture picture);
 }

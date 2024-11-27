@@ -7,7 +7,6 @@ import com.mall.xiaomi.mapper.ShoppingCartMapper;
 import com.mall.xiaomi.pojo.Product;
 import com.mall.xiaomi.pojo.ShoppingCart;
 import com.mall.xiaomi.vo.CartVo;
-import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:22
- * @Description:
- */
 @Service
 public class ShoppingCartService {
 

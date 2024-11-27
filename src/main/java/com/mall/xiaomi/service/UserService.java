@@ -5,15 +5,9 @@ import com.mall.xiaomi.exception.XmException;
 import com.mall.xiaomi.mapper.UserMapper;
 import com.mall.xiaomi.pojo.User;
 import com.mall.xiaomi.util.MD5Util;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:23
- * @Description:
- */
 @Service
 public class UserService {
 
@@ -33,7 +27,8 @@ public class UserService {
         User one = new User();
         one.setUsername(user.getUsername());
         // 先去看看用户名是否重复
-        if (userMapper.selectCount(one) == 1) {
+        Integer count = userMapper.selectCount(user);
+        if (count > 0) {
             // 用户名已存在
             throw new XmException(ExceptionEnum.SAVE_USER_REUSE);
         }
@@ -52,7 +47,8 @@ public class UserService {
         User one = new User();
         one.setUsername(username);
         // 先去看看用户名是否重复
-        if (userMapper.selectCount(one) == 1) {
+        Integer count = userMapper.selectCount(one);
+        if (count > 0) {
             // 用户名已存在
             throw new XmException(ExceptionEnum.SAVE_USER_REUSE);
         }

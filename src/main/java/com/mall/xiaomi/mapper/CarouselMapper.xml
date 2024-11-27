@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mall.xiaomi.mapper.CarouselMapper">
+
+    <resultMap id="baseCarouse" type="com.mall.xiaomi.pojo.Carousel">
+        <id property="carouselId" column="carousel_id"/>
+        <result property="imgPath" column="img_path" />
+        <result property="describes" column="describes" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="baseCarouse">
+        SELECT
+            *
+        FROM
+            carousel
+    </select>
+</mapper>

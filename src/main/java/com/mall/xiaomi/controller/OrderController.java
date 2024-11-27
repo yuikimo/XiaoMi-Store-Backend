@@ -1,6 +1,5 @@
 package com.mall.xiaomi.controller;
 
-import com.mall.xiaomi.pojo.Order;
 import com.mall.xiaomi.service.OrderService;
 import com.mall.xiaomi.util.ResultMessage;
 import com.mall.xiaomi.vo.CartVo;
@@ -11,11 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:25
- * @Description:
- */
 @RestController
 @RequestMapping("/order")
 public class OrderController {

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mall.xiaomi.mapper.SeckillTimeMapper">
+
+    <resultMap id="baseSeckillTime" type="com.mall.xiaomi.pojo.SeckillTime">
+        <id property="timeId" column="time_id" />
+        <result property="startTime" column="start_time" />
+        <result property="endTime" column="end_time" />
+    </resultMap>
+
+    <select id="getTime" parameterType="long" resultMap="baseSeckillTime">
+        SELECT
+            time_id,
+            start_time,
+            end_time
+        FROM
+            seckill_time
+        WHERE
+            end_time > #{time}
+        LIMIT
+            6
+    </select>
+
+    <delete id="deleteAll">
+        DELETE
+        FROM
+            seckill_time
+    </delete>
+
+    <select id="getEndTime" parameterType="integer" resultType="long">
+        SELECT
+            end_time
+        FROM
+            seckill_time
+        WHERE
+            time_id = #{timeId}
+    </select>
+
+    <select id="selectOne" resultType="com.mall.xiaomi.pojo.SeckillTime">
+        SELECT
+            time_id,
+            start_time,
+            end_time
+        FROM
+            seckill_time
+        WHERE
+            start_time <![CDATA[<]]> #{startTime}
+        AND
+            end_time > #{endTime}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO seckill_time(
+                                 start_time,
+                                 end_time)
+        VALUES (
+                #{startTime},
+                #{endTime}
+               )
+    </insert>
+</mapper>

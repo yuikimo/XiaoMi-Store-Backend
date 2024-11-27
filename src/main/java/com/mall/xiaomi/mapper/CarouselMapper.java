@@ -1,8 +1,12 @@
 package com.mall.xiaomi.mapper;
 
 import com.mall.xiaomi.pojo.Carousel;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface CarouselMapper extends Mapper<Carousel> {
+import java.util.List;
 
+@Mapper
+public interface CarouselMapper {
+
+    List<Carousel> selectAll();
 }

@@ -15,11 +15,6 @@ import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Auther: wdd
- * @Date: 2020-04-24 9:30
- * @Description:
- */
 @Component
 public class SeckillOrderQueue {
 

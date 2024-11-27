@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:25
- * @Description:
- */
 @RestController
 @RequestMapping("/collect")
 public class CollectController {

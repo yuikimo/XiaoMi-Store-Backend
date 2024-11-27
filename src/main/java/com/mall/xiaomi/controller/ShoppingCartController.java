@@ -1,6 +1,5 @@
 package com.mall.xiaomi.controller;
 
-import com.mall.xiaomi.pojo.ShoppingCart;
 import com.mall.xiaomi.service.ShoppingCartService;
 import com.mall.xiaomi.util.ResultMessage;
 import com.mall.xiaomi.vo.CartVo;
@@ -9,11 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:27
- * @Description:
- */
 @RestController
 @RequestMapping("/cart")
 public class ShoppingCartController{

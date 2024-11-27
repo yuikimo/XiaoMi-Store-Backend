@@ -3,30 +3,26 @@ package com.mall.xiaomi.task;
 import com.mall.xiaomi.mapper.ProductMapper;
 import com.mall.xiaomi.mapper.SeckillProductMapper;
 import com.mall.xiaomi.mapper.SeckillTimeMapper;
-import com.mall.xiaomi.pojo.Product;
 import com.mall.xiaomi.pojo.SeckillProduct;
 import com.mall.xiaomi.pojo.SeckillTime;
-import com.mall.xiaomi.service.SeckillProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-/**
- * @Auther: wdd
- * @Date: 2020-04-24 11:53
- * @Description:
- */
 @Component
 public class SeckillTask {
 
     @Autowired
     private SeckillTimeMapper seckillTimeMapper;
+
     @Autowired
     private ProductMapper productMapper;
+
     @Autowired
     private SeckillProductMapper seckillProductMapper;
+
 
     @Scheduled(cron = "0 0 15 * * ?")
     public void execute() {

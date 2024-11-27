@@ -13,12 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:21
- * @Description:
- */
 @Service
 public class CollectService {
 

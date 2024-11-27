@@ -1,8 +1,22 @@
 package com.mall.xiaomi.mapper;
 
 import com.mall.xiaomi.pojo.ShoppingCart;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface ShoppingCartMapper extends Mapper<ShoppingCart> {
+import java.util.List;
 
+@Mapper
+public interface ShoppingCartMapper {
+
+    List<ShoppingCart> select(ShoppingCart cart);
+
+    ShoppingCart selectOne(ShoppingCart shoppingCart);
+
+    void updateByPrimaryKey(ShoppingCart one);
+
+    void insert(ShoppingCart cart);
+
+    Integer delete(ShoppingCart cart);
+
+    int updateByPrimaryKeySelective(ShoppingCart cart);
 }

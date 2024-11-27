@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mall.xiaomi.mapper.UserMapper">
+
+    <resultMap id="baseUser" type="com.mall.xiaomi.pojo.User">
+        <id property="userId" column="user_id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+    </resultMap>
+    
+    <select id="selectOne" parameterType="com.mall.xiaomi.pojo.User" resultMap="baseUser">
+        SELECT
+            user_id,
+            username,
+            password
+        FROM
+            user
+        WHERE
+            username = #{username}
+        AND
+            password = #{password}
+    </select>
+
+    <select id="selectCount" parameterType="com.mall.xiaomi.pojo.User" resultType="java.lang.Integer">
+        SELECT
+            COUNT(1)
+        FROM
+            user
+        WHERE
+            username = #{username}
+    </select>
+
+    <insert id="insert" parameterType="com.mall.xiaomi.pojo.User">
+        INSERT INTO user(
+                         username,
+                         password)
+        VALUES (
+                #{username},
+                #{password}
+               )
+    </insert>
+
+</mapper>

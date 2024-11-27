@@ -1,6 +1,5 @@
 package com.mall.xiaomi.controller;
 
-import com.mall.xiaomi.pojo.Product;
 import com.mall.xiaomi.pojo.ProductPicture;
 import com.mall.xiaomi.service.ProductPictureService;
 import com.mall.xiaomi.util.ResultMessage;
@@ -12,11 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 13:27
- * @Description:
- */
 @RestController
 @RequestMapping("/productPicture")
 public class ProductPictureController {

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mall.xiaomi.mapper.SeckillProductMapper">
+
+    <resultMap id="baseSeckillProduct" type="com.mall.xiaomi.pojo.SeckillProduct">
+        <id property="seckillId" column="seckill_id" />
+        <result property="productId" column="product_id" />
+        <result property="seckillPrice" column="seckill_price" />
+        <result property="seckillStock" column="seckill_stock" />
+        <result property="timeId" column="time_id" />
+    </resultMap>
+
+    <select id="getSeckill" parameterType="string" resultType="com.mall.xiaomi.vo.SeckillProductVo">
+        SELECT
+            st.start_time,
+            st.end_time,
+            sp.*,
+            p.product_name,
+            p.product_price,
+            p.product_picture
+        FROM
+            seckill_product sp, product p, seckill_time st
+        WHERE
+            sp.time_id = st.time_id
+        AND
+            sp.product_id = p.product_id
+        AND
+            sp.seckill_id = #{seckillId}
+    </select>
+
+    <select id="getSeckillProductVos" resultType="com.mall.xiaomi.vo.SeckillProductVo">
+        SELECT
+            st.start_time,
+            st.end_time,
+            sp.*,
+            p.product_name,
+            p.product_price,
+            p.product_picture
+        FROM
+            seckill_product sp, seckill_time st, product p
+        WHERE
+            sp.time_id = st.time_id
+        AND
+            sp.product_id = p.product_id
+        AND
+            sp.time_id = #{timeID}
+        AND
+            st.end_time > #{time}
+    </select>
+
+    <update id="decrStock" parameterType="integer">
+        UPDATE
+            seckill_product
+        SET
+            seckill_stock = seckill_stock - 1
+        WHERE
+            seckill_id = #{seckillId}
+        AND
+            seckill_stock > 0
+    </update>
+
+    <delete id="deleteAll">
+        DELETE
+        FROM
+            seckill_product
+    </delete>
+
+    <select id="selectOne" parameterType="com.mall.xiaomi.pojo.SeckillProduct" resultMap="baseSeckillProduct">
+        SELECT
+            seckill_id,
+            product_id,
+            seckill_price,
+            seckill_stock,
+            time_id
+        FROM
+            seckill_product
+        WHERE
+            seckill_id = #{seckillId}
+    </select>
+
+    <insert id="insert" parameterType="com.mall.xiaomi.pojo.SeckillProduct">
+        INSERT INTO seckill_product(
+                                    product_id,
+                                    seckill_price,
+                                    seckill_stock,
+                                    time_id)
+        VALUES (
+                #{productId},
+                #{seckillPrice},
+                #{seckillStock},
+                #{timeId}
+               )
+    </insert>
+
+    <insert id="insertList" parameterType="java.util.ArrayList">
+        INSERT INTO seckill_product(
+                                    product_id,
+                                    seckill_price,
+                                    seckill_stock,
+                                    time_id)
+        VALUES
+        <foreach collection="seckillProducts" item="item" index="index" separator=",">
+            #{item.productId},
+            #{item.seckillPrice},
+            #{item.seckillStock},
+            #{item.timeId}
+        </foreach>
+    </insert>
+</mapper>

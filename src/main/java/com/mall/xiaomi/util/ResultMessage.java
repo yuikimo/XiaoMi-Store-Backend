@@ -3,11 +3,6 @@ package com.mall.xiaomi.util;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 16:16
- * @Description:
- */
 @Component
 @Data
 public class ResultMessage {

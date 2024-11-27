@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @Auther: wdd
- * @Date: 2020-03-19 16:45
- * @Description:
- */
 @ControllerAdvice
 @ResponseBody
 public class XmExceptionHandler {
